@@ -14,7 +14,8 @@ int SleepCommand::execute(list<string>::iterator it) {
         Interpreter* inter = new Interpreter();
         Expression *ex = inter->interpret(*it);
         float value = ex->calculate();
-        miliseconds = (int)value;
+        miliseconds = (int) value;
+        delete inter;
     }
     this_thread::sleep_for(chrono::milliseconds(miliseconds));
     return 2;

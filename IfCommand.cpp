@@ -41,6 +41,7 @@ bool IfCommand::conditionRes(list<string>::iterator it) {
     it++; // it is the right expression
     Expression* ex_right = inter->interpret(*it);
     this->val_right = ex_right->calculate();
+    delete inter;
     if (op == "<") {
         if (val_left < val_right) {
             return true;

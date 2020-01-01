@@ -51,3 +51,10 @@ void Parse::parse() {
     }
 
 }
+
+Parse::~Parse() {
+    map<string, Command *>::iterator it;
+    for (it = this->commandMap.begin(); it != this->commandMap.end(); it++) {
+        delete it->second;
+    }
+}

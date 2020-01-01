@@ -16,6 +16,7 @@ int OpenServerCommand::execute(list<string>::iterator it) {
     Interpreter *inter = new Interpreter();
     Expression *ex = inter->interpret(*it);
     portS = (int) ex->calculate();
+    delete inter;
     //create socket
     int socketfd = socket(AF_INET, SOCK_STREAM, 0);
     if (socketfd == -1) {
@@ -64,3 +65,6 @@ void OpenServerCommand::callingForAccept(int client_socket) {
     this->server->runServer(client_socket);
 }
 
+OpenServerCommand::~OpenServerCommand() {
+    delete this->server;
+}

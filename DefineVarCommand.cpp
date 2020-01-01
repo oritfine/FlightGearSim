@@ -32,6 +32,7 @@ int DefineVarCommand::execute(list<string>::iterator it) {
         Expression *ex = inter->interpret(*it);
         float value = ex->calculate();
         s->lockExecute('s', "", varName, "=", value);
+        delete inter;
         return 3;
     }
 }

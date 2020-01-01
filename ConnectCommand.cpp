@@ -18,7 +18,8 @@ int ConnectCommand::execute(list<string>::iterator it) {
     } catch (exception& e) {
         auto* inter = new Interpreter();
         Expression *ex = inter->interpret(*it);
-        port = (int)ex->calculate();
+        port = (int) ex->calculate();
+        delete inter;
     }
     auto* t2 = new thread(&ConnectCommand::callingForSending, this, port, ip);
     s->update_threads(t2);

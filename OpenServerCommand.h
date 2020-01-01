@@ -14,6 +14,8 @@ class OpenServerCommand: public Command {
 public:
     int execute(list<string>::iterator it);
     void callingForAccept(int port);
+
+    virtual ~OpenServerCommand();
 };
 
 

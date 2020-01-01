@@ -15,6 +15,8 @@ public:
     Parse(list<string> flyList);
     void createMap();
     void parse();
+
+    ~Parse();
 };
 
 
