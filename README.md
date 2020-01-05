@@ -8,14 +8,12 @@ This is our first milestone of the project. Our goals are:
 * Install the FlightGear simulator from [here](https://www.flightgear.org/download/).
 * You will need to have xml file which defines the TCP protocol. You'll add it to /data/Protocol directory
 of the simulator. This file is added to the repository.
-* Update inside the simulator the specific TCP/IP protocols. Here is what you will be needed to fill:
+* Update inside the simulator the specific TCP/IP protocols.
+To add it, go to the Flight Simulator -> Settings -> Additional Settings, and write these two lines:
 
 --telnet=socket,in,10,127.0.0.1,5402,tcp
     
 --generic=socket,out,10,127.0.0.1,5400,tcp,generic_small
-
-To add it, go to the Flight Simulator -> Settings -> Additional Settings, and write there theses two
-lines we provided above.
 
 ## About The Project
 The process of the project is as follows:
