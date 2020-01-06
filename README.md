@@ -4,7 +4,7 @@ This is our first milestone of the project. Our goals are:
 * Interprating a txt file with flight instructions.
 * Establishing a TCP/IP connection with the simulator, as a client and server.
 
-## Installation Instructions:
+## Installation Instructions
 * Install the FlightGear simulator from [here](https://www.flightgear.org/download/).
 * You will need to have xml file which defines the TCP protocol. You'll add it to /data/Protocol directory
 of the simulator. This file is added to the repository.
@@ -24,11 +24,11 @@ plane fly in the simulator. The fly.txt file is also added to the repository.
 updated by the commands we executed according to the file, and some were updated by the simulator.
 4. The simulator has now all the information it needs to start the engine and fly!
 
-### Instructions Of Running:
+## Running Instructions
 To run the projet, you'll need to have the txt file in the same folder as the project.
 If not, when compiling, pass the path of the fly.txt file as an argument for the main.
 
-## Syntax Of The File
+## File Syntax
 1. After every command, there will be space, and also after declaring a new variable. Variables are declared and
 has to be initialized right after.
 2. Nested Loops, and conditions inside while loops will not be in the txt file, and vice versa.
