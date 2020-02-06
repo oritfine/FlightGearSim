@@ -22,9 +22,9 @@ Lexer::Lexer() {
     this->orders = list<string>();
 }
 
-list<string> Lexer::lexer() {
+list<string> Lexer::lexer(char* file_path) {
     ifstream inFile;
-    inFile.open("fly.txt", ios::in);
+    inFile.open(file_path, ios::in);
     if (!inFile) {
         cerr << "ERROR! failed opening file" << endl;
         exit(1);
@@ -36,17 +36,23 @@ list<string> Lexer::lexer() {
     return orders;
 }
 
+string Lexer::eraseTabs(string line) {
+    int i = 0;
+    while (line[i] == ' ' || line[i] == '\t') {
+        i++;
+    }
+    if (i > 0) {
+        line.erase(0, i);
+    }
+    return line;
+}
+
 void Lexer::splitLine(string line) {
     string temp;
     string name;
 
     /** check tab in the first 4 chars of the line */
-    if ((line[0] == ' ') && (line[1] == ' ') && (line[2] == ' ') && (line[3] == ' ')) {
-        line.erase(0, 4);
-    }
-    if (line.find("\t") != string::npos) {
-        line = line.substr(1);
-    }
+    line = eraseTabs(line);
 
     /** check line by the command it starts with */
     if ((line.find("openDataServer") != string::npos) || (line.find("Sleep") != string::npos)

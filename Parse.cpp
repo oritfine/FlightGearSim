@@ -23,8 +23,8 @@ void Parse::createMap() {
     commandMap.insert({"var",new DefineVarCommand()});
     commandMap.insert({"Print",new PrintCommand()});
     commandMap.insert({"Sleep",new SleepCommand()});
-    commandMap.insert({"while",new WhileCommand()}); // create
-    commandMap.insert({"if",new IfCommand()}); // create
+    commandMap.insert({"while",new WhileCommand()});
+    commandMap.insert({"if",new IfCommand()});
 }
 
 /** execute all commands in the list flyCommand and finish program after it's done */
@@ -45,7 +45,6 @@ void Parse::parse() {
             delete defineVarCommand;
         }
         if (!s->getIfRun()) {
-            delete s;
             break;
         }
     }

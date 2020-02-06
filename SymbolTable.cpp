@@ -7,20 +7,6 @@
 #include "SymbolTable.h"
 SymbolTable *SymbolTable::tableObj = 0;
 
-SymbolTable::~SymbolTable() {
-    map<string, Var*>::iterator it;
-    for (it = this->getNameMap().begin(); it != this->getNameMap().end(); it++) {
-        delete it->second;
-    }
-    for (it = this->getSimMap().begin(); it != this->getSimMap().end(); it++) {
-        delete it->second;
-    }
-    for (auto it_thread = threads.begin(); it_thread != threads.end(); it_thread) {
-        delete (*it_thread);
-    }
-    delete this->tableObj;
-}
-
 class SymbolTable * SymbolTable::getTable() {
     if (!tableObj) {
         tableObj = new SymbolTable;

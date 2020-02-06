@@ -30,7 +30,6 @@ private:
     void setVarDataByName(const string& name, float value);
     void setVarDataBySim(const string& sim, float value);
 public:
-    ~SymbolTable();
     static SymbolTable *getTable();
     map<string, Var*> getNameMap();
     map<string, Var*> getSimMap();
