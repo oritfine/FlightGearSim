@@ -14,8 +14,7 @@ int OpenServerCommand::execute(list<string>::iterator it) {
     it++;
     int portS;
     Interpreter *inter = new Interpreter();
-    Expression *ex = inter->interpret(*it);
-    portS = (int) ex->calculate();
+    portS = (int) inter->interpret(*it);
     delete inter;
     //create socket
     int socketfd = socket(AF_INET, SOCK_STREAM, 0);

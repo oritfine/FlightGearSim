@@ -19,7 +19,6 @@ int WhileCommand::execute(list<string>::iterator it) {
         condition = conditionRes(first_it);
     }
     list_commands.clear();
-    delete parser;
     return jumps + 1;
 }
 
@@ -37,13 +36,11 @@ int WhileCommand::createList(list<string>::iterator it) {
 bool WhileCommand::conditionRes(list<string>::iterator it) {
     Interpreter* inter = new Interpreter();
     it++; // it is the left expression
-    Expression* ex_left = inter->interpret(*it);
-    this->val_left = ex_left->calculate();
+    this->val_left = inter->interpret(*it);
     it++; // it is the symbol (=, != ..)
     this->op = *it;
     it++; // it is the right expression
-    Expression* ex_right = inter->interpret(*it);
-    this->val_right = ex_right->calculate();
+    this->val_right = inter->interpret(*it);
     delete inter;
     if (op == "<") {
         if (val_left < val_right) {

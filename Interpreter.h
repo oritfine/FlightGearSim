@@ -18,12 +18,11 @@ public:
 
 
 class Interpreter {
-    //map<string, float> variables;
     queue <string> queuePostfix;
     stack <string> stackStr;
 public:
     Interpreter();
-    Expression *interpret(string s);
+    float interpret(string s);
     void setVariables (string *s);
     void outCharsOfStack();
     string getFullNumber(string s);

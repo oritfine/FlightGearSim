@@ -12,8 +12,7 @@ int SleepCommand::execute(list<string>::iterator it) {
         miliseconds = stoi(*it);
     } catch (exception& e) {
         Interpreter* inter = new Interpreter();
-        Expression *ex = inter->interpret(*it);
-        float value = ex->calculate();
+        float value = inter->interpret(*it);
         miliseconds = (int) value;
         delete inter;
     }

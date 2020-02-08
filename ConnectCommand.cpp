@@ -17,8 +17,7 @@ int ConnectCommand::execute(list<string>::iterator it) {
         port = stoi(*it);
     } catch (exception& e) {
         auto* inter = new Interpreter();
-        Expression *ex = inter->interpret(*it);
-        port = (int) ex->calculate();
+        port = (int) inter->interpret(*it);
         delete inter;
     }
     auto* t2 = new thread(&ConnectCommand::callingForSending, this, port, ip);

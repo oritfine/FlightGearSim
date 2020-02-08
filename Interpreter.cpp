@@ -219,15 +219,16 @@ string Interpreter::getExAfterPlacing(string str, string key, int startKey) {
     return str;
 }
 
-Expression *Interpreter::interpret(string s) {
+float Interpreter::interpret(string s) {
 
     setVariables(&s);
 
     // if the string is in 1 length
     if (s.length() == 1) {
         if (isdigit(s[0])) {
-            Expression* e = new Value (stod(s));
-            return e;
+            Expression* e = new Value (stof(s));
+            return  e->calculate();
+            //return e;
         } else {
             throw "invalid string";
         }
@@ -289,7 +290,9 @@ Expression *Interpreter::interpret(string s) {
         queuePostfix.pop();
     }
 
-    return expressions.top();
+    float value = expressions.top()->calculate();
+    delete expressions.top();
+    return value;
 }
 
 /**
